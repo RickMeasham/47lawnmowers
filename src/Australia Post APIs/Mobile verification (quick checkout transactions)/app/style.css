@@ -1,0 +1,120 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+body, h1, h2, h3,input,textarea, ul,li, p{
+   margin:0;
+   padding:0;
+   font-family: 'Roboto', sans-serif;
+}
+
+body{
+	background-color: #f3f1ee;
+	padding-top:50px;
+}
+
+.red{
+	color:#dc1928;
+}
+
+#login-panel, #user-detail{
+	margin:0 auto;
+	width:270px;
+	padding:20px;
+	border:1px solid black;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	background-color: white;
+}
+
+#login-panel input{
+	margin-top:15px;
+	padding:10px 5px;
+	width:260px;
+	border:1px solid grey;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	font-size: 12pt;
+	background-color: #f3f1ee;
+}
+
+#login-panel img, #user-detail img{
+	width:60px;
+	margin:0px 105px;
+}
+
+.img-block{
+	margin:20px auto;
+}
+
+#getAdd, #error-msg{
+	display:none;
+}
+
+#error-msg{
+	color:white;
+	background-color:#f27935;
+	font-size: 12pt;
+	width:270px;
+	padding:10px 20px;
+	text-align: center;
+	margin: 0px auto 15px auto;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+}
+
+input.sub-btn{
+	border:none !important;
+	width:272px !important;
+	margin-top:15px;
+	padding:10px !important;
+	text-align: center;
+	background-color: #dc1928 !important;
+	color:white;
+	font-size: 12pt;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+a.sub-btn{
+	display:inline-block;
+	margin-top:15px;
+	width:260px;
+	padding:10px 0px!important;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	cursor: pointer;
+	text-align: center;
+	background-color: #dc1928;
+	color:white;
+	font-size: 12pt;
+	text-decoration: none;
+}
+
+a.back-link{
+	color:#dc1928;
+	display:inline-block;
+	text-align: right;
+	width:260px;
+}
+
+a.sub-btn:hover{
+	background-color: #bc111e;
+}
+
+#user-detail{
+	display: none;
+}
+
+#user-detail h3{
+	margin:10px 0px;
+}

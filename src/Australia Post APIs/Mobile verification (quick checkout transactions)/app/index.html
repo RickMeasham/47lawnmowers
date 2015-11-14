@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Checkout with MyPost</title>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <link href="http://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="style.css">
+    <script>
+    $( document ).ready(function() {
+    	
+    	$('#login').click(function(){
+    		event.preventDefault();
+    		$('#login').hide();
+    		$('#getAdd').show('slow');
+    	});
+
+    	$('#cus-back').click(function(){
+    		$('#user-detail').hide();
+		    $('#login-panel').show('slow');
+		    $('#login-detail').show('slow');
+		    $('#login').show('slow');
+    		$('#getAdd').hide();
+    		$('#pin').val('');
+    	});
+
+    	$('#login-detail').on('submit', function(event){
+    		event.preventDefault();
+    		$.ajax({
+    			type: "GET",
+    			dataType: 'json',
+		        url: "http://192.168.210.14:8080/checkoutapi/v1/checkout?merchantCode=auspost&referenceId="+$('#pin').val()+"&validationCode=" + $('#pin').val()
+		    }).done(function(data){
+		    	var userDetail = data;
+		    	
+		    	$('span#name').html(userDetail.firstName);
+		    	$('#delName').html(userDetail.firstName+ " " + userDetail.lastName);
+		    	$('#addLine1').html(userDetail.address.line1);
+		    	$('#addLine2').html(userDetail.address.line2);
+		    	$('#suburb').html(userDetail.address.city+ " " + userDetail.address.state+ " "+userDetail.address.countryCode+ " "+userDetail.address.postcode);
+		    	$('#email').html(userDetail.email);
+		    	$('#mobile').html(userDetail.mobileNumber);
+		    	$('#addLine1').html(userDetail.address.line1);
+
+		    	$('#error-msg').hide();
+		    	$('#login-detail').hide();
+		    	$('#login-panel').hide();
+		    	$('#user-detail').show('slow');
+		    }).fail(function(data){
+		    	$('#error-msg').show('slow');
+		    	$('#user-detail').hide();
+		    	$('#error-msg').html("Oops, Something went wrong.");
+		    	$('#login').show('slow');
+    			$('#getAdd').hide();
+    			$('#pin').val('');
+		    });
+    	});
+    });
+    </script>
+<body>
+	<div id="error-msg"></div>
+	<div id="login-panel">
+		<h2>MyPost Checkout</h2>
+		<form id="login-detail">
+			<input type="text" id="mob" placeholder="Mobile Number" name="mob" maxlength="10" title="10 digits starts with 04" pattern="04[0-9]{8}" required>
+			<br />
+			<input type="submit" id="login" class="sub-btn" value="Get Code" >
+			<input type="text" placeholder="PIN" name="pin" id="pin" value="111111" maxlength="6" pattern="[0-9]{6}" title="6 Digits PIN" required>
+			<input type="submit" id="getAdd" class="sub-btn" value="Checkout" >
+			<br />
+		</form>
+		<div class="img-block"><img src="http://static.auspost.com.au/ap/css/images/auspost.png" alt="Australia Post Logo"></div>
+	</div>
+	<div id="user-detail">
+		<a class="back-link" href="#" id="cus-back">Back</a>
+		<div class="img-block"><img src="http://static.auspost.com.au/ap/css/images/auspost.png" alt="Australia Post Logo"></div>
+		<h2>Welcome back, <span id="name"></span></h2>
+		<h3 class="red">Ship to</h3>
+		<p id="delName"></p>
+		<p id="addLine1"></p>
+		<p id="addLine2"></p>
+		<p id="suburb"></p><br />
+		<h3 class="red">Contact Detail</h3>
+		<p>E-Mail: <span id="email"></span></p>
+		<p>Mobile: <span id="mobile"></span></p>
+		<a class="sub-btn" href="#">Confirm</a>
+	</div>
+</body>
+</html>
