@@ -1,4 +1,4 @@
-h1. 47 Lawnmowers
+# 47 Lawnmowers
 
 On my block, 47 people own a lawnmower. They use it for about 30 minutes every two weeks. For the other 335 and a half hours of the fortnight, that lawnmower is sitting in the garage.
 
@@ -6,7 +6,7 @@ There are 22 power drills. There are 2 table saws. 14 pressure washers. And ther
 
 None of these tools are used for more than a short amount of time. But we all own them.
 
-h2. 2 Lawnmowers
+## 2 Lawnmowers
 
 47 Lawnmowers is designed to bring the number of lawnmowers and other tools down to a sensible level by leveraging the sharing economy.
 
