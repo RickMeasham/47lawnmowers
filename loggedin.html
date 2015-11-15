@@ -441,7 +441,7 @@
                     var var_marker = new google.maps.Marker({
                         position: data.results[0].geometry.location,
                         map: map,
-                        icon: 'img/' + icon + '.png',
+                        icon: 'img/icon_' + icon + '.png',
                         title: icon
                     });
                     var_marker.setMap(map);
@@ -471,9 +471,12 @@
                 var_mapoptions
         );
 
-        addMarker('22 Storkbill Road, Wyndham Vale, VIC Australia', 'mower', var_map)
-        addMarker('11 Storkbill Road, Wyndham Vale, VIC Australia', 'mower', var_map)
-        addMarker('10 Storkbill Road, Wyndham Vale, VIC Australia', 'mower', var_map)
+        addMarker('22 Storkbill Road, Wyndham Vale, VIC Australia', 'mower', var_map);
+        addMarker('11 Storkbill Road, Wyndham Vale, VIC Australia', 'chainsaw', var_map);
+        addMarker('10 Storkbill Road, Wyndham Vale, VIC Australia', 'wheelbarrow', var_map);
+        addMarker('2 Poa Link, Wyndham Vale, VIC Australia', 'wheelbarrow', var_map);
+        addMarker('11 Karong Drive, Wyndham Vale, VIC Australia', 'mower', var_map);
+        addMarker('20 Karong Drive, Wyndham Vale, VIC Australia', 'mower', var_map);
 
 
 
