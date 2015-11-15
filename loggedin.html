@@ -45,8 +45,11 @@
         .sidebar {
             /*margin-top: 80px;*/
         }
+        .todo {
+            color: #CC0000
+        }
         #map-container {
-            height: 400px;
+            height: 600px;
         }
     </style>
 
@@ -207,7 +210,7 @@
                         <a href="index.html"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-hammer fa-fw"></i> My Tools<span class="fa arrow"></span></a>
+                        <a href="mytools.htm"><i class="fa fa-wrench fa-fw"></i> My Tools</a>
                     </li>
                     <li>
                         <a href="tables.html"><i class="fa fa-comments fa-fw"></i> Messages and Requests</a>
@@ -240,6 +243,11 @@
         <!--</div>-->
         <!-- /.row -->
         <div class="row" style="padding-top: 22px">
+            <div class="alert alert-success alert-dismissable" style="display: none" id="request_dialog">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <i class="fa fa-bell fa-lg"></i>
+                <strong>Open tool request:</strong> <a href="#">Click here if you have a "Compactor"</a>
+            </div>
             <div class="col-lg-4">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -253,7 +261,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="messages.htm">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -275,7 +283,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="requests.htm">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -289,7 +297,7 @@
                     <div class="panel-heading">
                         <div class="row">
                             <div class="col-xs-3">
-                                <i class="fa fa-shopping-cart fa-5x"></i>
+                                <i class="fa fa-wrench fa-5x"></i>
                             </div>
                             <div class="col-xs-9 text-right">
                                 <div class="huge">8</div>
@@ -297,7 +305,7 @@
                             </div>
                         </div>
                     </div>
-                    <a href="#">
+                    <a href="mytools.htm">
                         <div class="panel-footer">
                             <span class="pull-left">View Details</span>
                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -312,7 +320,7 @@
             <div class="col-lg-8">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bar-chart-o fa-fw"></i> Local Tools
+                        <i class="fa fa-wrench fa-fw"></i> Tools Nearby
                         <div class="pull-right">
                             <div class="btn-group">
                                 <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -346,54 +354,49 @@
             <div class="col-lg-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <i class="fa fa-bell fa-fw"></i> Notifications Panel
+                        <i class="fa fa-bell fa-fw"></i> Activity
                     </div>
                     <!-- /.panel-heading -->
                     <div class="panel-body">
                         <div class="list-group">
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                <i class="fa fa-comment fa-fw"></i> New Comment on your lawnmower
                                     <span class="pull-right text-muted small"><em>4 minutes ago</em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                <i class="fa fa-wrench fa-fw"></i> Open Tool Request: Drill
                                     <span class="pull-right text-muted small"><em>12 minutes ago</em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-comments fa-fw"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em>27 minutes ago</em>
+                                <i class="fa fa-heart-o fa-fw"></i> New Review on your tool
+                                    <span class="pull-right text-muted small"><em>6 hours ago</em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-tasks fa-fw"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
+                                <i class="fa fa-wrench fa-fw"></i> Open Tool Request: Compactor
+                                    <span class="pull-right text-muted small"><em>12 hours ago</em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
+                                <i class="fa fa-wrench fa-fw"></i> Open Tool Request: Drill
+                                    <span class="pull-right text-muted small"><em>12 hours ago</em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-bolt fa-fw"></i> Server Crashed!
-                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
+                                <i class="fa fa-star fa-fw todo"></i> <span class="todo">Review Required for Nigel</span>
+                                    <span class="pull-right text-muted small"><em>7 days ago</em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-warning fa-fw"></i> Server Not Responding
-                                    <span class="pull-right text-muted small"><em>10:57 AM</em>
+                                <i class="fa fa-thumbs-up fa-fw goodreview"></i> Nigel likes your lawnmower!
+                                    <span class="pull-right text-muted small"><em>7 days ago</em>
                                     </span>
                             </a>
                             <a href="#" class="list-group-item">
-                                <i class="fa fa-shopping-cart fa-fw"></i> New Order Placed
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
-                            </a>
-                            <a href="#" class="list-group-item">
-                                <i class="fa fa-money fa-fw"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
+                                <i class="fa fa-thumbs-up fa-fw"></i> You left Rachel feedback
+                                    <span class="pull-right text-muted small"><em>9 days ago</em>
                                     </span>
                             </a>
                         </div>
@@ -403,6 +406,122 @@
                     <!-- /.panel-body -->
                 </div>
                 <!-- /.panel -->
+
+
+                <div class="chat-panel panel panel-default">
+                    <div class="panel-heading">
+                        <i class="fa fa-comments fa-fw"></i>
+                        Chat
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-chevron-down"></i>
+                            </button>
+                            <ul class="dropdown-menu slidedown">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-refresh fa-fw"></i> Refresh
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-check-circle fa-fw"></i> Available
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-times fa-fw"></i> Busy
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-clock-o fa-fw"></i> Away
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <ul class="chat">
+                            <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">Jack</strong>
+                                        <small class="pull-right text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> 12 mins ago
+                                        </small>
+                                    </div>
+                                    <p>
+                                        Does anyone have a barnacle remover?
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                        <img src="img/avatar/rick.png" width="50" height="50" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <small class=" text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> 12 mins ago</small>
+                                        <strong class="pull-right primary-font">Rick</strong>
+                                    </div>
+                                    <p>
+                                        What on earth is a barnacle remover?
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <strong class="primary-font">Jack</strong>
+                                        <small class="pull-right text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> 10 mins ago</small>
+                                    </div>
+                                    <p>
+                                        A tool that removed barnacles
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="right clearfix">
+                                    <span class="chat-img pull-right">
+                                        <img src="img/avatar/rick.png" width="50" height="50" alt="User Avatar" class="img-circle" />
+                                    </span>
+                                <div class="chat-body clearfix">
+                                    <div class="header">
+                                        <small class=" text-muted">
+                                            <i class="fa fa-clock-o fa-fw"></i> 8 mins ago</small>
+                                        <strong class="pull-right primary-font">Rick</strong>
+                                    </div>
+                                    <p>
+                                        No shit. But what is it? You need to create an open tool request. Whatever it is, if someone has one, they'll get an alert.
+                                    </p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- /.panel-body -->
+                    <div class="panel-footer">
+                        <div class="input-group">
+                            <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here..." />
+                                <span class="input-group-btn">
+                                    <button class="btn btn-warning btn-sm" id="btn-chat">
+                                        Send
+                                    </button>
+                                </span>
+                        </div>
+                    </div>
+                    <!-- /.panel-footer -->
+                </div>
+                <!-- /.panel .chat-panel -->
+
+
             </div>
             <!-- /.col-lg-4 -->
         </div>
@@ -463,7 +582,7 @@
                 "lat" : -37.886393,
                 "lng" : 144.612466},
             zoom: 18,
-            mapTypeId: google.maps.MapTypeId.HYBRID
+            mapTypeId: google.maps.MapTypeId.ROADMAP
         };
 
         var var_map = new google.maps.Map(
@@ -485,6 +604,12 @@
 
     google.maps.event.addDomListener(window, 'load', init_map);
 
+</script>
+
+<script>
+    $(function(){
+        $('#request_dialog').delay(5000).slideDown();
+    })
 </script>
 
 </body>
